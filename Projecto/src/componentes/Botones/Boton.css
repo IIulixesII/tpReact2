@@ -1,0 +1,25 @@
+.boton {
+  background-color: #007bff;      /* Azul Bootstrap */
+  color: white;                   /* Texto blanco */
+  padding: 10px 20px;             /* Espaciado */
+  border: none;                   /* Sin borde */
+  border-radius: 5px;             /* Bordes redondeados */
+  font-size: 16px;                /* Tamaño de fuente */
+  cursor: pointer;                /* Cursor puntero */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.boton:hover {
+  background-color: #0056b3;     /* Azul más oscuro al pasar el mouse */
+  transform: scale(1.05);        /* Pequeño zoom */
+}
+
+.boton:active {
+  background-color: #00408d;     /* Azul aún más oscuro al clickear */
+  transform: scale(0.95);        /* Pequeña reducción */
+}
+
+.boton:focus {
+  outline: 2px solid #80bdff;    /* Outline visible para accesibilidad */
+  outline-offset: 2px;
+}

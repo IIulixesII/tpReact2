@@ -1,0 +1,35 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "usuario": "admin",
+      "password": "123",
+      "rol": "admin"
+    },
+    {
+      "id": "2",
+      "usuario": "ulises",
+      "password": "456",
+      "rol": "lector"
+    },
+    {
+      "id": "0283",
+      "usuario": "Ulises",
+      "password": "123",
+      "rol": "lector"
+    },
+    {
+      "id": "19fa",
+      "usuario": "hola",
+      "password": "123",
+      "rol": "lector"
+    }
+  ],
+  "noticias": [
+    {
+      "id": "1",
+      "titulo": "Primera noticia",
+      "contenido": "Contenido de la primera noticia"
+    }
+  ]
+}
