@@ -1,48 +1,48 @@
 import React, { useState } from 'react';
-import './InicioAdmin.css'; // Asegúrate de tener este archivo para los estilos
+import './InicioAdmin.css';
 
 export function InicioAdmin() {
   const [titulo, setTitulo] = useState('');
   const [contenido, setContenido] = useState('');
+  const [imagen, setImagen] = useState(null);
   const [mensaje, setMensaje] = useState('');
   const [error, setError] = useState(false);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!titulo || !contenido) {
+    if (!titulo || !contenido || !imagen) {
       setError(true);
       setMensaje('Por favor, completa todos los campos.');
       return;
     }
 
     const nuevaNoticia = {
+      id: Date.now().toString(),
       titulo,
-      contenido
+      contenido,
+      imagen,
     };
 
-    try {
-      const respuesta = await fetch('http://localhost:3001/noticias', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(nuevaNoticia),
-      });
+    const noticiasGuardadas = JSON.parse(localStorage.getItem('noticias')) || [];
+    noticiasGuardadas.push(nuevaNoticia);
+    localStorage.setItem('noticias', JSON.stringify(noticiasGuardadas));
 
-      if (respuesta.ok) {
-        setError(false);
-        setMensaje('Noticia creada exitosamente');
-        setTitulo('');
-        setContenido('');
-      } else {
-        setError(true);
-        setMensaje('Error al crear la noticia');
-      }
-    } catch (error) {
-      setError(true);
-      setMensaje('Error al conectar con el servidor');
-      console.error(error);
+    setError(false);
+    setMensaje('Noticia creada exitosamente');
+    setTitulo('');
+    setContenido('');
+    setImagen(null);
+  };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImagen(reader.result);
+      };
+      reader.readAsDataURL(file);
     }
   };
 
@@ -76,6 +76,16 @@ export function InicioAdmin() {
             required
           />
         </div>
+        <div className="form-group">
+          <label htmlFor="imagen">Imagen</label>
+          <input
+            type="file"
+            id="imagen"
+            onChange={handleImageChange}
+            required
+          />
+        </div>
+        {imagen && <img src={imagen} alt="Vista previa" width="100" />}
         <button type="submit" className="submit-btn">Crear Noticia</button>
       </form>
     </div>
