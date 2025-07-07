@@ -1,8 +1,8 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import { Hero } from './componentes/Hero/Hero.jsx';
-import { HeroAdmin } from './componentes/Hero/HeroAdmin.jsx';
+import { Header } from './componentes/Header/Header.jsx'; // ✅ Header visual
+import { Hero } from './componentes/Hero/Hero.jsx';       // ✅ Hero dinámico
 import { Footer } from './componentes/Footer/Footer.jsx';
 import { ProtectedRoute } from './componentes/ProtectedRoute/ProtectedRoute.jsx';
 
@@ -15,32 +15,20 @@ import { Inicio } from './componentes/Inicio/Inicio.jsx';
 import { Iniciolog } from './componentes/Iniciolog/Iniciolog.jsx';
 import { InicioAdmin } from './componentes/InicioAdmin/IncioAdmin.jsx';
 
-import { useAuth } from './contexto/AuthContexto.jsx';
-
 function App() {
-  const { IsLogged, user, logout } = useAuth();
-
   return (
     <BrowserRouter>
-      {/* Header dinámico según el rol */}
-      {user?.rol === 'admin' ? <HeroAdmin /> : <Hero />}
+      {/* Header visual (estático) */}
+      <Header title="NoticiasARG" links={[]} />
 
-      {/* Botón de logout */}
-      <nav style={{ padding: '10px' }}>
-        {IsLogged && (
-          <button onClick={logout} className="btn btn-danger">
-            Cerrar sesión
-          </button>
-        )}
-      </nav>
+      {/* Hero con navegación dinámica */}
+      <Hero />
 
       <Routes>
-        {/* Rutas públicas */}
         <Route path="/" element={<NoticiaCard />} />
         <Route path="/registro" element={<Registro />} />
         <Route path="/login" element={<Inicio />} />
 
-        {/* Rutas protegidas */}
         <Route
           path="/noticia/:id"
           element={
@@ -73,8 +61,6 @@ function App() {
             </ProtectedRoute>
           }
         />
-
-        {/* Ruta no encontrada */}
         <Route path="*" element={<h1>Página no encontrada</h1>} />
       </Routes>
 

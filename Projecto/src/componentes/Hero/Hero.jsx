@@ -1,4 +1,3 @@
-import './Hero.css';
 import { useAuth } from '../../contexto/AuthContexto.jsx';
 import { Link } from 'react-router-dom';
 
