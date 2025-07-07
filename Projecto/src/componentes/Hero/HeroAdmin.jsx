@@ -8,7 +8,7 @@ export function HeroAdmin() {
         <nav className="hero-nav">
           <a href="/inicioadmin">Inicio</a>
           <a href="/subir">Subir Noticias</a>
-          <a href="/verusuarios">Ver usuarios</a>
+          <a href="/usuarios">Ver usuarios</a>
         </nav>
       </div>
     </header>

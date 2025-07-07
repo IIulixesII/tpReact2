@@ -1,8 +1,11 @@
 .hero {
-  background: linear-gradient(to right, #3b82f6, #1d4ed8); /* Azul brillante a profundo */
-  color: white;
+  background: #ffffff; /* Fondo blanco */
+  color: #333;
   padding: 20px 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra inferior suave */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .hero-container {
@@ -19,7 +22,7 @@
   font-size: 28px;
   font-weight: 700;
   margin-bottom: 10px;
-  color: white;
+  color: #111;
 }
 
 .hero-nav {
@@ -28,20 +31,30 @@
   gap: 15px;
 }
 
-.hero-nav a {
-  color: #f0f0f0;
+.hero-nav a,
+.hero-nav button {
+  color: #333;
+  background: none;
+  border: none;
   text-decoration: none;
   font-weight: 500;
   transition: all 0.2s ease;
   padding: 6px 10px;
   border-radius: 4px;
+  cursor: pointer;
+  font-family: inherit;
 }
 
-.hero-nav a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+.hero-nav a:hover,
+.hero-nav button:hover {
+  background-color: #f0f0f0;
   text-decoration: underline;
-  color: #ffffff;
+  color: #000;
 }
+.hero-title {
+  color: rgb(255, 0, 0); /* Rojo puro */
+}
+
 
 @media (max-width: 768px) {
   .hero-container {
@@ -56,4 +69,6 @@
   .hero-nav {
     margin-top: 10px;
   }
+  
 }
+
