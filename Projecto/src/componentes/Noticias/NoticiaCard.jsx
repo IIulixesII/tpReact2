@@ -1,12 +1,16 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { useNoticias } from "../../hooks/useNoticias";
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export function NoticiaCard() {
-  const [noticias = []] = useNoticias();
+  const [noticias, setNoticias] = useState([]);
+
+  useEffect(() => {
+    const noticiasGuardadas = JSON.parse(localStorage.getItem('noticias')) || [];
+    setNoticias(noticiasGuardadas);
+  }, []);
 
   if (!noticias.length) {
-    return <p>Cargando noticias...</p>;
+    return <p>No hay noticias disponibles.</p>;
   }
 
   return (
@@ -19,10 +23,15 @@ export function NoticiaCard() {
               <div className="card-body">
                 <h5 className="card-title">{noticia.titulo}</h5>
                 <p className="card-text">{noticia.contenido}</p>
-                <Link
-                  to={`/noticia/${noticia.id}`}
-                  className="stretched-link"
-                />
+                {noticia.imagen && (
+                  <img
+                    src={noticia.imagen}
+                    alt="Imagen de la noticia"
+                    className="card-img-top"
+                    style={{ maxHeight: '200px', objectFit: 'cover' }}
+                  />
+                )}
+                <Link to={`/noticia/${noticia.id}`} className="stretched-link" />
               </div>
             </div>
           </div>

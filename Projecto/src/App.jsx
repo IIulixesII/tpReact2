@@ -1,9 +1,10 @@
 import './App.css';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { Hero } from './componentes/Hero/Hero.jsx';
 import { HeroAdmin } from './componentes/Hero/HeroAdmin.jsx';
-import { Footer } from './componentes/Footer/Footer.jsx'; // 👈 Agregado
+import { Footer } from './componentes/Footer/Footer.jsx';
+import { ProtectedRoute } from './componentes/ProtectedRoute/ProtectedRoute.jsx';
 
 import { NoticiaCard } from './componentes/Noticias/NoticiaCard.jsx';
 import { NoticiaDetalle } from './componentes/Noticias/NoticiaDetalle.jsx';
@@ -13,6 +14,7 @@ import { Registro } from './componentes/Registro/Registro.jsx';
 import { Inicio } from './componentes/Inicio/Inicio.jsx';
 import { Iniciolog } from './componentes/Iniciolog/Iniciolog.jsx';
 import { InicioAdmin } from './componentes/InicioAdmin/IncioAdmin.jsx';
+
 import { useAuth } from './contexto/AuthContexto.jsx';
 
 function App() {
@@ -21,70 +23,62 @@ function App() {
   return (
     <BrowserRouter>
       {/* Header dinámico según el rol */}
-      {user?.rol === "admin" ? <HeroAdmin /> : <Hero />}
+      {user?.rol === 'admin' ? <HeroAdmin /> : <Hero />}
 
+      {/* Botón de logout */}
       <nav style={{ padding: '10px' }}>
-        {IsLogged ? (
+        {IsLogged && (
           <button onClick={logout} className="btn btn-danger">
             Cerrar sesión
           </button>
-        ) : null}
+        )}
       </nav>
 
       <Routes>
+        {/* Rutas públicas */}
         <Route path="/" element={<NoticiaCard />} />
-
-        <Route
-          path="/noticia/:id"
-          element={
-            IsLogged && user?.rol === 'admin' ? (
-              <NoticiaDetalle />
-            ) : (
-              <Navigate to="/login" />
-            )
-          }
-        />
-
-        <Route
-          path="/usuarios"
-          element={
-            IsLogged && user?.rol === 'admin' ? (
-              <UsuarioCard />
-            ) : (
-              <Navigate to="/login" />
-            )
-          }
-        />
-
         <Route path="/registro" element={<Registro />} />
         <Route path="/login" element={<Inicio />} />
 
+        {/* Rutas protegidas */}
         <Route
-          path="/iniciolog"
+          path="/noticia/:id"
           element={
-            IsLogged && user?.rol === 'lector' ? (
-              <Iniciolog />
-            ) : (
-              <Navigate to="/login" />
-            )
+            <ProtectedRoute allowedRoles={['admin']}>
+              <NoticiaDetalle />
+            </ProtectedRoute>
           }
         />
-
+        <Route
+          path="/usuarios"
+          element={
+            <ProtectedRoute allowedRoles={['admin']}>
+              <UsuarioCard />
+            </ProtectedRoute>
+          }
+        />
         <Route
           path="/inicioadmin"
           element={
-            IsLogged && user?.rol === 'admin' ? (
+            <ProtectedRoute allowedRoles={['admin']}>
               <InicioAdmin />
-            ) : (
-              <Navigate to="/login" />
-            )
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/iniciolog"
+          element={
+            <ProtectedRoute allowedRoles={['lector', 'admin']}>
+              <Iniciolog />
+            </ProtectedRoute>
           }
         />
 
+        {/* Ruta no encontrada */}
         <Route path="*" element={<h1>Página no encontrada</h1>} />
       </Routes>
 
-      <Footer /> {/* 👈 Footer al final de todo */}
+      <Footer />
     </BrowserRouter>
   );
 }
