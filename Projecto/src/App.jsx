@@ -1,35 +1,39 @@
 import './App.css';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+
 import { Hero } from './componentes/Hero/Hero.jsx';
+import { HeroAdmin } from './componentes/Hero/HeroAdmin.jsx';
+
 import { NoticiaCard } from './componentes/Noticias/NoticiaCard.jsx';
 import { NoticiaDetalle } from './componentes/Noticias/NoticiaDetalle.jsx';
 import { UsuarioCard } from './componentes/Usuario/UsuarioCard.jsx';
+
 import { Registro } from './componentes/Registro/Registro.jsx';
 import { Inicio } from './componentes/Inicio/Inicio.jsx';
-import { useAuth } from './contexto/AuthContexto.jsx';
-import { InicioAdmin } from './componentes/InicioAdmin/IncioAdmin.jsx';
 import { Iniciolog } from './componentes/Iniciolog/Iniciolog.jsx';
+import { InicioAdmin } from './componentes/InicioAdmin/IncioAdmin.jsx';
+
+import { useAuth } from './contexto/AuthContexto.jsx';
 
 function App() {
   const { IsLogged, user, logout } = useAuth();
 
   return (
     <BrowserRouter>
-      <Hero />
-      <nav>
+      {/* Header dinámico según el rol */}
+      {user?.rol === "admin" ? <HeroAdmin /> : <Hero />}
+
+      <nav style={{ padding: '10px' }}>
         {IsLogged ? (
-          <>
-            <button onClick={logout}>Cerrar sesión</button>
-          </>
-        ) : (
-          <>
-            {/* Enlaces para login o registro */}
-          </>
-        )}
+          <button onClick={logout} className="btn btn-danger">
+            Cerrar sesión
+          </button>
+        ) : null}
       </nav>
+
       <Routes>
         <Route path="/" element={<NoticiaCard />} />
-        
+
         <Route
           path="/noticia/:id"
           element={
@@ -47,7 +51,7 @@ function App() {
             IsLogged && user?.rol === 'admin' ? (
               <UsuarioCard />
             ) : (
-              <Navigate to="/usuarios" />
+              <Navigate to="/login" />
             )
           }
         />
