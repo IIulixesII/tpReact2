@@ -1,78 +1,53 @@
-/* InicioAdmin.css */
-.form-container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f4f4f9;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.form-title {
-  text-align: center;
-  color: #333;
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.form {
+.inicio-admin-container {
+  min-height: calc(100vh - 160px); /* ajustar por header + footer */
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  gap: 2rem;
 }
 
-.form-group {
-  margin-bottom: 15px;
+.inicio-admin-title {
+  font-size: 2.5rem;
+  color: #ff416c;
+  font-weight: 700;
+  user-select: none;
 }
 
-.form-group label {
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: #555;
-}
-
-.form-group input,
-.form-group textarea {
+.cards-container {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-  box-sizing: border-box;
+  max-width: 700px;
 }
 
-.form-group textarea {
-  resize: vertical;
-  min-height: 100px;
-}
-
-.submit-btn {
-  padding: 10px 15px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
+.admin-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(255, 65, 108, 0.3);
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.3s ease;
+  user-select: none;
 }
 
-.submit-btn:hover {
-  background-color: #0056b3;
-}
-
-.message {
-  padding: 10px;
-  margin-bottom: 20px;
-  border-radius: 4px;
+.admin-card h3 {
+  margin-top: 1rem;
+  color: #ff416c;
+  font-weight: 600;
+  font-size: 1.3rem;
   text-align: center;
 }
 
-.message.success {
-  background-color: #d4edda;
-  color: #155724;
-}
-
-.message.error {
-  background-color: #f8d7da;
-  color: #721c24;
+.admin-card:hover {
+  box-shadow: 0 6px 25px rgba(255, 65, 108, 0.6);
+  transform: translateY(-6px);
 }

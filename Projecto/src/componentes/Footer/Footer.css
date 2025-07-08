@@ -1,9 +1,10 @@
 .footer {
-  background-color: #ffffff; /* Igual que el header */
-  color: #333;               /* Texto gris oscuro */
-  padding: 40px 20px 20px;
-  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05); /* Sombra superior sutil */
+  background: #ffffff;
+  color: #333;
+  padding: 30px 20px 10px;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
   font-family: Arial, sans-serif;
+  font-size: 14px;
   margin-top: auto;
 }
 
@@ -23,17 +24,23 @@
 
 .footer-section h3,
 .footer-section h4 {
-  color: #111;
+  font-size: 16px;
+  font-weight: 700;
   margin-bottom: 10px;
-  font-size: 1rem;
+  background: linear-gradient(45deg, #ff4b2b, #ff416c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .footer-section p,
 .footer-section a {
+  color: #555;
   font-size: 14px;
-  color: #333;
+  margin-bottom: 6px;
   text-decoration: none;
   transition: color 0.2s ease;
+  display: block;
 }
 
 .footer-section a:hover {
@@ -41,9 +48,33 @@
   text-decoration: underline;
 }
 
+.footer-socials {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.footer-socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(45deg, #ff4b2b, #ff416c);
+  color: #fff;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.footer-socials a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(255, 65, 108, 0.4);
+}
+
 .footer-bottom {
   text-align: center;
-  font-size: 13px;
+  font-size: 12px;
   margin-top: 20px;
   color: #777;
 }
@@ -57,5 +88,9 @@
 
   .footer-section {
     margin-bottom: 20px;
+  }
+
+  .footer-socials {
+    justify-content: flex-start;
   }
 }

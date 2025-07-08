@@ -1,11 +1,12 @@
+// Header.jsx
 import "./Header.css";
 
 export function Header({ title, links }) {
   return (
-    <header className="hero">
-      <div className="hero-container">
-        <h1 className="hero-title">{title}</h1>
-        <nav className="hero-nav">
+    <header className="main-header">
+      <div className="header-container">
+        <h1 className="header-title">{title}</h1>
+        <nav className="header-nav">
           {links.map((link, index) => (
             <a key={index} href={link.href}>
               {link.label}

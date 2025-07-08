@@ -1,0 +1,108 @@
+.iniciolog-container {
+  max-width: 1200px; /* más ancho */
+   min-width: 600px; /* para que no se achique demasiado en pantallas pequeñas */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.5rem 2rem; 
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+  height: auto;
+   min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+.iniciolog-title {
+  text-align: center;
+  color: #ff416c;
+  user-select: none;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+.iniciolog-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.iniciolog-label {
+  min-width: 110px;
+  font-weight: bold;
+  color: #343a40;
+}
+
+.iniciolog-value {
+  flex: 1;
+  font-size: 1rem;
+  word-break: break-word;
+  color: #212529;
+}
+
+.iniciolog-input {
+  flex: 1;
+  padding: 6px 8px;
+  border-radius: 4px;
+  border: 1px solid #ced4da;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.iniciolog-input:focus {
+  border-color: #d6336c;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(214, 51, 108, 0.25);
+}
+
+.btn-edit {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #ff416c;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
+  transition: color 0.2s ease;
+}
+.btn-edit:hover {
+  color: #e0315f;
+}
+
+.btn-save {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #198754;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
+  transition: color 0.2s ease;
+}
+.btn-save:hover {
+  color: #146c43;
+}
+
+.icon-btn {
+  font-size: 20px;
+  padding: 0 6px;
+}
+
+.loading {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  color: #666;
+}

@@ -4,32 +4,94 @@
       "id": "1",
       "usuario": "admin",
       "password": "123",
-      "rol": "admin"
+      "rol": "admin",
+      "nombre": "Admin",
+      "apellido": "Principal",
+      "email": "admin@noticiasarg.com",
+      "telefono": "+54 11 0000-0000",
+      "direccion": "Calle Falsa 123"
     },
     {
       "id": "2",
       "usuario": "ulises",
       "password": "123",
-      "rol": "lector"
+      "rol": "lector",
+      "nombre": "Ulises1",
+      "apellido": "González",
+      "email": "ulises@example.com",
+      "telefono": "+54 11 1234-5678",
+      "direccion": "Av. Siempre Viva 742"
     },
     {
       "id": "0283",
       "usuario": "Ulises",
       "password": "123",
-      "rol": "lector"
+      "rol": "lector",
+      "nombre": "Ulises",
+      "apellido": "Pérez",
+      "email": "ulisesp@example.com",
+      "telefono": "+54 11 8765-4321",
+      "direccion": "Calle Verde 456"
     },
     {
       "id": "19fa",
       "usuario": "hola",
       "password": "123",
+      "rol": "lector",
+      "nombre": "Hola",
+      "apellido": "Mundo",
+      "email": "hola@correo.com",
+      "telefono": "+54 11 1111-2222",
+      "direccion": "Av. Central 100"
+    },
+    {
+      "id": "25ea",
+      "usuario": "bri10",
+      "password": "123",
+      "nombre": "brisa",
+      "apellido": "baez",
+      "email": "bri@gmail.com",
+      "telefono": "123213",
+      "direccion": "sdfsdf",
       "rol": "lector"
     }
   ],
   "noticias": [
     {
       "id": "1",
-      "titulo": "Primera noticia",
-      "contenido": "Contenido de la primera noticia"
+      "titulo": "Crisis económica en Argentina: el peso se desploma frente al dólar",
+      "subtitulo": "El mercado cambiario vive horas de tensión tras nuevas medidas del Banco Central",
+      "contenido": "En una jornada marcada por la incertidumbre, el dólar blue alcanzó un nuevo récord histórico, mientras el Banco Central intenta contener la presión cambiaria mediante la intervención de reservas. Expertos señalan que las medidas adoptadas por el Gobierno podrían tener efectos contraproducentes si no vienen acompañadas de un plan económico de largo plazo. Comerciantes y ciudadanos expresan su preocupación ante la creciente inflación, que ya supera el 140% interanual. Por su parte, el FMI emitió un comunicado pidiendo mayor previsibilidad y compromiso fiscal. En las calles, la población busca alternativas para resguardar sus ahorros, mientras los precios continúan escalando sin freno. La situación genera un clima de malestar social que se refleja en protestas y movilizaciones convocadas para los próximos días.",
+      "autor": "Carla Menéndez",
+      "imagen": "/image/noticia.jpg",
+      "fecha": "2025-07-04"
+    },
+    {
+      "id": "2",
+      "titulo": "Avances en inteligencia artificial: Argentina apuesta por la tecnología",
+      "subtitulo": "El país busca posicionarse como referente en innovación dentro de América Latina",
+      "contenido": "Argentina dio un paso clave en su estrategia digital al anunciar un nuevo programa nacional de inteligencia artificial. El plan incluye la creación de centros de investigación, incentivos para startups tecnológicas y capacitación gratuita en universidades públicas. El Ministro de Ciencia y Tecnología destacó que el objetivo es fomentar la soberanía tecnológica y generar empleo calificado. Empresas del sector privado también mostraron interés en participar. Expertos celebran la iniciativa, aunque advierten sobre la necesidad de una regulación ética clara. La sociedad científica internacional elogió la propuesta y ofreció colaboración técnica. Se espera que el primer centro esté operativo a finales de 2025.",
+      "autor": "Diego Navarro",
+      "imagen": "/image/noticia.jpg",
+      "fecha": "2025-07-05"
+    },
+    {
+      "id": "3",
+      "titulo": "Tormentas severas afectan el norte argentino: hay evacuados",
+      "subtitulo": "El fenómeno climático dejó anegamientos y cortes de energía en varias provincias",
+      "contenido": "Fuertes lluvias azotaron durante la madrugada las provincias de Chaco, Corrientes y Formosa, provocando inundaciones en barrios enteros. Las autoridades activaron planes de emergencia y dispusieron centros de evacuación para cientos de familias. Defensa Civil confirmó que no hay víctimas fatales, pero sí importantes daños materiales. El Servicio Meteorológico Nacional mantiene el alerta naranja por tormentas severas. En algunas zonas se registraron vientos de más de 100 km/h. Las clases fueron suspendidas y varias rutas permanecen intransitables. Vecinos denuncian falta de obras hídricas y exigen respuestas ante cada nuevo temporal.",
+      "autor": "Marcela Ruiz",
+      "imagen": "/image/noticia.jpg",
+      "fecha": "2025-07-06"
+    },
+    {
+      "id": "4",
+      "titulo": "La Selección Argentina se prepara para el Mundial 2026",
+      "subtitulo": "Scaloni afina detalles con una nueva generación de jugadores",
+      "contenido": "Con Lionel Messi aún en duda, la Selección Argentina inició su primera concentración del año en el predio de Ezeiza. El cuerpo técnico trabaja intensamente con una nómina que mezcla experiencia y juventud, apostando por talentos emergentes del fútbol local y europeo. En conferencia de prensa, Lionel Scaloni destacó el compromiso del grupo y la importancia de seguir construyendo una identidad sólida de cara al Mundial 2026. Los entrenamientos se centran en la presión alta, la recuperación rápida del balón y la versatilidad táctica. El equipo viajará próximamente a Europa para disputar amistosos clave ante España y Alemania.",
+      "autor": "Gabriel López",
+      "imagen": "/image/noticia.jpg",
+      "fecha": "2025-07-07"
     }
   ]
 }
