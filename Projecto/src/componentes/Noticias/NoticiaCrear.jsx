@@ -5,10 +5,10 @@ export function NoticiaCrear() {
   const [noticia, setNoticia] = useState({
     titulo: '',
     contenido: '',
-    imagen: null, // para almacenar el archivo
+    imagen: '', 
     fecha: ''
   });
-  const [preview, setPreview] = useState(null); // preview de imagen
+  const [preview, setPreview] = useState(null);
   const [mensaje, setMensaje] = useState('');
   const [error, setError] = useState(false);
   const navigate = useNavigate();
@@ -21,14 +21,14 @@ export function NoticiaCrear() {
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      setNoticia(prev => ({ ...prev, imagen: file }));
       const reader = new FileReader();
       reader.onloadend = () => {
+        setNoticia(prev => ({ ...prev, imagen: reader.result }));
         setPreview(reader.result);
       };
       reader.readAsDataURL(file);
     } else {
-      setNoticia(prev => ({ ...prev, imagen: null }));
+      setNoticia(prev => ({ ...prev, imagen: '' }));
       setPreview(null);
     }
   };
@@ -48,22 +48,18 @@ export function NoticiaCrear() {
       return;
     }
 
-    // Preparar form data para enviar archivo
-    const formData = new FormData();
-    formData.append('titulo', noticia.titulo);
-    formData.append('contenido', noticia.contenido);
-    formData.append('fecha', noticia.fecha);
-    formData.append('imagen', noticia.imagen);
-
     fetch('http://localhost:3001/noticias', {
       method: 'POST',
-      body: formData
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(noticia)
     })
       .then(res => {
         if (!res.ok) throw new Error('Error al crear noticia');
         setError(false);
         setMensaje('Noticia creada correctamente.');
-        setNoticia({ titulo: '', contenido: '', imagen: null, fecha: '' });
+        setNoticia({ titulo: '', contenido: '', imagen: '', fecha: '' });
         setPreview(null);
         setTimeout(() => {
           navigate('/');
